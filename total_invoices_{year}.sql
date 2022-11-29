@@ -2,14 +2,13 @@
 
 
 SELECT 
-    COUNT(InvoiceDate)
+    STRFTIME( '%Y', InvoiceDate) AS Year,
+    COUNT(InvoiceId) AS Total_Invoices
 FROM Invoice
-WHERE InvoiceDate LIKE "2009-%"; 
+WHERE InvoiceDate LIKE "2009-%" OR InvoiceDate LIKE "2011-%"
+GROUP BY Year; 
 
 
 
-SELECT 
-    COUNT(InvoiceDate)
-FROM Invoice
-WHERE InvoiceDate LIKE "2011-%"; 
+
 
