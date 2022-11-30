@@ -5,8 +5,7 @@ Total number of customers assigned to each employee (even if it's zero)*/
 
 
 SELECT 
-    e.FirstName,
-    e.LastName,
+    e.FirstName ||" "|| e.LastName AS FullName,
     COUNT(CustomerId) AS Total_Customers_Assigned
 FROM Employee e
 JOIN Customer c 

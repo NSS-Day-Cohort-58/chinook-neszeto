@@ -1,13 +1,11 @@
 /*Which sales agent made the most in sales in 2009*/
 
 SELECT 
-    FirstName, 
-    LastName,
+    FullName,
     MAX(Total_Sales) as TotalSales
 from
     (SELECT 
-        e.FirstName AS FirstName,
-        e.LastName AS LastName,
+        e.FirstName ||" "|| e.LastName AS FullName,
         COUNT(il.InvoiceId) AS Total_Sales
 
     FROM Employee e 
@@ -18,7 +16,7 @@ from
     JOIN InvoiceLine il 
         ON il.InvoiceId = i.InvoiceId
     WHERE i.InvoiceDate LIKE  "2009-%" 
-    GROUP BY e.LastName)
+    GROUP BY e.LastName);
 
 
 

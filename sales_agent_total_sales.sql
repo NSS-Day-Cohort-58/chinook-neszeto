@@ -4,8 +4,7 @@ Total sales for each employee (all time)*/
 
 
 SELECT 
-    e.FirstName,
-    e.LastName,
+    e.FirstName ||" "|| e.LastName AS FullName,
     COUNT(il.InvoiceLineId) AS Total_Sales
 FROM Employee e 
 JOIN Customer c 

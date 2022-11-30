@@ -7,11 +7,9 @@ Sale Agent full name*/
 
 SELECT 
    i.Total AS Invoice_Total,
-   c.FirstName AS Customer_First_Name,
-   c.LastName AS Customer_Last_Name,
+   c.FirstName ||" "|| c.LastName AS Customer_Full_Name,
    c.Country AS Customer_Country,
-   e.FirstName AS Employee_First_Name,
-   e.LastName AS Employee_Last_Name
+   e.FirstName ||" "|| e.LastName AS Employee_Full_Name
 FROM Invoice i
 INNER JOIN Customer c   
     ON c.CustomerId = i.CustomerId

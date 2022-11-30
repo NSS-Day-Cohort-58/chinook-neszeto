@@ -1,13 +1,11 @@
 /*Which sales agent made the most in sales over all?*/
 
 SELECT
-    FirstName,
-    LastName, 
+    FullName, 
     Max(Total_Sales) AS TotalSales
 FROM
     (SELECT 
-        e.FirstName AS FirstName,
-        e.LastName AS LastName,
+        e.FirstName ||" "|| e.LastName AS FullName,
         COUNT(il.InvoiceId) AS Total_Sales
 
     FROM Employee e 
